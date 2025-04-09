@@ -1,0 +1,12 @@
+# Enforce LF endings
+* text=auto
+*.js   text eol=lf
+*.ts   text eol=lf
+*.json text eol=lf
+*.sql  text eol=lf
+*.sh   text eol=lf
+
+# Treat these files as binary (don't mess with line endings)
+*.png binary
+*.jpg binary
+*.pdf binary
