@@ -3,7 +3,7 @@ import { ExpensesService} from 'src/app/services/expenses.service';
 import { Expenses } from 'src/app/models/Expenses';
 import { ActivatedRoute } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+
 import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild, AfterViewInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -24,11 +24,9 @@ dateRange = { from: '', to: '' };
 displayedColumns: string[] = ['title', 'amount', 'category', 'date', 'actions'];
 dataSource = new MatTableDataSource<any>(this.expenses);
 @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
+ 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
   constructor(private expenseService: ExpensesService , private route:ActivatedRoute) {}
 
@@ -40,8 +38,9 @@ dataSource = new MatTableDataSource<any>(this.expenses);
     this.loading = true;
     this.expenseService.getAllExpenses().subscribe({
       next: (data) => {
-        this.expenses = data;
-        this.dataSource.data=data;
+        const sortedData = data.sort((a:Expenses, b:Expenses) => new Date(b.date).getTime() - new Date(a.date).getTime());        
+        this.expenses = sortedData;
+        this.dataSource.data=sortedData;
         this.loading = false;
       },
       error: () => this.loading = false
@@ -58,6 +57,7 @@ dataSource = new MatTableDataSource<any>(this.expenses);
     };
   
     this.expenseService.getFilteredExpenses(filters).subscribe(data => {
+      const sortedData = data.sort((a:Expenses, b:Expenses) => new Date(b.date).getTime() - new Date(a.date).getTime());
       this.expenses = data;
       this.dataSource.data=data;
     });
@@ -66,8 +66,7 @@ dataSource = new MatTableDataSource<any>(this.expenses);
   applySearch() {
     if (this.searchTerm.trim()) {
       this.expenses = this.expenses.filter(expense =>
-        expense.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        expense.category.toLowerCase().includes(this.searchTerm.toLowerCase())
+        expense.title.toLowerCase().includes(this.searchTerm.toLowerCase()) 
       );
       this.dataSource.data=this.expenses;
     } else {

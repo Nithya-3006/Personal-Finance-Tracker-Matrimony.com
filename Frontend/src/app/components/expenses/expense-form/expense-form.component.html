@@ -1,44 +1,55 @@
-<h2>Add New Expense</h2>
+
 <form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
-  <label>Title:
-    <input type="text" formControlName="title" />
-  </label>
-  <br />
-  <p *ngIf="expenseForm.controls['title'].touched && expenseForm.controls['title'].invalid">
-    Check title
-  </p>
-
-  <label>Amount:
-    <input type="number" formControlName="amount" />
-  </label>
-  <p *ngIf="expenseForm.controls['amount'].touched && expenseForm.controls['amount'].invalid">
-    Check amount
-  </p>
-  <br />
-
-  <label>Category:
-    <select formControlName='category'>
-      <option value="" disabled> Select a Category</option>
-      <option value="Groceries">Groceries</option>
-      <option value="Lifestyle">Lifestyle</option>
-      <option value="Bills">Bills</option>
-    </select>
-  </label>
-  <p *ngIf="expenseForm.controls['category'].touched && expenseForm.controls['category'].invalid">
-    Check category
-  </p>
-  <br />
-
-  <label>Date:
-    <input type="date" formControlName="date" />
-  </label>
-  <p *ngIf="expenseForm.controls['date'].touched && expenseForm.controls['date'].invalid">
-    Check date
-  </p>
-  <br />
-
-  <button type="submit">Add Expense</button>
+  <h2>Add New Expense</h2>
   <div>
-    <button routerLink="/expenses" >Back</button>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" formControlName="title"/>
+    </mat-form-field> 
+  </div>
+  <span *ngIf="expenseForm.controls['title'].touched && expenseForm.controls['title'].invalid">
+    Check title
+  </span>
+  <br />
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number"formControlName="amount"/>
+    </mat-form-field> 
+    </div>
+    <span *ngIf="expenseForm.controls['amount'].touched && expenseForm.controls['amount'].invalid">
+      Check amount
+    </span>
+    <br />
+    <div>
+    <mat-form-field apperarance="fill">
+      <mat-label>Category</mat-label>
+        <mat-select formControlName='category'>
+            <mat-option *ngFor="let category of categories" [value]="category.value">{{category.viewValue}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    </div>
+    <span *ngIf="expenseForm.controls['category'].touched && expenseForm.controls['category'].invalid">
+      Check category
+    </span>  
+  <br />
+    <div>
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input matInput type="date" formControlName="date" [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+    </div>
+  <span *ngIf="expenseForm.controls['date'].touched && expenseForm.controls['date'].invalid">
+    Check date
+  </span>
+  <br />
+
+  <button mat-fab extended type="submit">Add </button>
+  <div>
+    <button mat-fab extended type="button" routerLink="/expenses" ><mat-icon>arrow_back_ios</mat-icon>Back</button>
   </div>
 </form>

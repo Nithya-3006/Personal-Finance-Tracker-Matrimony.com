@@ -1,15 +1,29 @@
 <div *ngIf="expenses">
   <h2>Edit Product</h2>
-  <form (ngSubmit)="updateExpenses()">
-    <label>Name:</label>
-    <input type="text" [(ngModel)]="expenses.title" name="title" required />
-
-    <label>Price:</label>
-    <input type="number" [(ngModel)]="expenses.amount" name="amount" required />
-    
-    <label>Category:</label>
-    <input type="text" [(ngModel)]="expenses.category" name="category" required/>
-    <button type="submit">Update</button>
-    <button routerLink="/products">Cancel</button>
+  <form (ngSubmit)="updateExpenses()" #form="ngForm">
+    <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" [(ngModel)]="expenses.title" name="title" required/>
+    </mat-form-field> 
+    </div>
+    <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="expenses.amount" name="amount" required />
+    </mat-form-field> 
+    </div>
+    <div>
+    <mat-form-field apperarance="fill">
+      <mat-label>Category</mat-label>
+        <mat-select [(ngModel)]="expenses.category" name="category" required>
+            <mat-option *ngFor="let category of categories" [value]="category.value">{{category.viewValue}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    </div>
+    <div class="button-field">
+    <button mat-fab extended type="submit"><mat-icon>edit</mat-icon>Update</button>
+    <button mat-fab extended type="button" routerLink="/expenses"><mat-icon>close</mat-icon>Cancel</button>
+    </div>
   </form>
 </div>

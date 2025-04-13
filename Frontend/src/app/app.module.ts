@@ -23,6 +23,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatCardModule} from '@angular/material/card'
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +52,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatChipsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

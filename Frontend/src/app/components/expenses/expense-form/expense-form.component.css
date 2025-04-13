@@ -1,38 +1,22 @@
-button {
-    padding: 6px 12px;
-    font-size: 14px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin: 5px;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  .filter-container {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 20px;
-  }
-  
-  input, select {
-    padding: 8px;
-    font-size: 14px;
-    margin-right: 8px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button{
+  margin: 5px;
+}
+h2{
+  text-align: center;
+  font-weight: bolder;
+}

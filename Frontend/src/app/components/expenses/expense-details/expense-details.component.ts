@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExpensesService } from 'src/app/services/expenses.service';
+
 @Component({
   selector: 'app-expense-details',
   templateUrl: './expense-details.component.html',

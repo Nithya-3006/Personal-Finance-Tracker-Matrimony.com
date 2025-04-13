@@ -8,6 +8,7 @@ import { ExpensesService } from 'src/app/services/expenses.service';
 })
 export class EditExpenseComponent implements OnInit{
   expenses:any={id:'',title:'',amount:'',date:'',category:''}
+  categories:any[]=[{value:'Groceries' , viewValue:'Groceries'},{value:'Lifestyle' , viewValue:'Lifestyle'},{value:'Lifestyle' , viewValue:'Lifestyle'}]
   constructor(
     private route: ActivatedRoute,
     private expensesService: ExpensesService,

@@ -1,7 +1,20 @@
+<h2>Expense No {{expenses.id}} Details:</h2>
 <div *ngIf="expenses">
-    <h4>{{ expenses.title }}</h4>
-    <p><strong>Amount:</strong> ₹{{ expenses.amount }}</p>
-    <p><strong>Category:</strong> {{ expenses.category }}</p>
-    <p><strong>Date:</strong> {{ expenses.date | date }}</p>
+  <mat-card class="expense-card" appearance="outlined">
+    <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{ expenses.title }}</mat-card-title>
+      <mat-card-subtitle>{{expenses.catgory}}</mat-card-subtitle>
+    </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content><strong>Amount:</strong> ₹{{ expenses.amount }}</mat-card-content>
+    <mat-card-content><strong>Date:</strong> {{ expenses.date | date }}</mat-card-content>
+  <mat-card-footer>
+    <mat-chip-set class="buttons-field">
+     <button mat-fab routerLink="/expenses"><mat-icon>arrow_back_ios</mat-icon></button>
+     <button mat-fab [routerLink]="['/edit-expenses', expenses.id]"  ><mat-icon>edit</mat-icon></button>
+    </mat-chip-set>
+  </mat-card-footer>
+  </mat-card>
   </div>
   

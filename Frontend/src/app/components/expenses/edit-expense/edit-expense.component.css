@@ -1,0 +1,26 @@
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .button-field {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  
+  .button-field button {
+    flex: 1;
+  }
+  

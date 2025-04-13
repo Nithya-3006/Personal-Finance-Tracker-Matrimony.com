@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExpensesService } from 'src/app/services/expenses.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectionStrategy } from '@angular/core';
 @Component({
   selector: 'app-expense-form',
   templateUrl: './expense-form.component.html',
@@ -10,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ExpenseFormComponent implements OnInit{
   expenseForm!: FormGroup;
-
+  categories:any[]=[{value:'Groceries' , viewValue:'Groceries'},{value:'Lifestyle' , viewValue:'Lifestyle'},{value:'Lifestyle' , viewValue:'Lifestyle'}]
+ 
   constructor(
     private fb: FormBuilder,
     private expenseService: ExpensesService,
