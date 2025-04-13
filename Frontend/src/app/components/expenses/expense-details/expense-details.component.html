@@ -1,1 +1,7 @@
-<p>expense-details works!</p>
+<div *ngIf="expenses">
+    <h4>{{ expenses.title }}</h4>
+    <p><strong>Amount:</strong> ₹{{ expenses.amount }}</p>
+    <p><strong>Category:</strong> {{ expenses.category }}</p>
+    <p><strong>Date:</strong> {{ expenses.date | date }}</p>
+  </div>
+  

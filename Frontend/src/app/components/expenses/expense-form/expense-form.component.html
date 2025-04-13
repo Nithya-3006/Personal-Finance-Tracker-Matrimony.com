@@ -1,1 +1,44 @@
-<p>expense-form works!</p>
+<h2>Add New Expense</h2>
+<form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
+  <label>Title:
+    <input type="text" formControlName="title" />
+  </label>
+  <br />
+  <p *ngIf="expenseForm.controls['title'].touched && expenseForm.controls['title'].invalid">
+    Check title
+  </p>
+
+  <label>Amount:
+    <input type="number" formControlName="amount" />
+  </label>
+  <p *ngIf="expenseForm.controls['amount'].touched && expenseForm.controls['amount'].invalid">
+    Check amount
+  </p>
+  <br />
+
+  <label>Category:
+    <select formControlName='category'>
+      <option value="" disabled> Select a Category</option>
+      <option value="Groceries">Groceries</option>
+      <option value="Lifestyle">Lifestyle</option>
+      <option value="Bills">Bills</option>
+    </select>
+  </label>
+  <p *ngIf="expenseForm.controls['category'].touched && expenseForm.controls['category'].invalid">
+    Check category
+  </p>
+  <br />
+
+  <label>Date:
+    <input type="date" formControlName="date" />
+  </label>
+  <p *ngIf="expenseForm.controls['date'].touched && expenseForm.controls['date'].invalid">
+    Check date
+  </p>
+  <br />
+
+  <button type="submit">Add Expense</button>
+  <div>
+    <button routerLink="/expenses" >Back</button>
+  </div>
+</form>

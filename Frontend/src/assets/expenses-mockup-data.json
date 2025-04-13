@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Grocery Shopping",
+    "amount": 1500.50,
+    "category": "Food",
+    "date": "2025-04-01",
+    "created_at": "2024-04-01T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "title": "Internet Bill",
+    "amount": 999.00,
+    "category": "Utilities",
+    "date": "2025-04-02",
+    "created_at": "2024-04-01T10:00:00Z"
+  },
+  {
+    "id": 3,
+    "title": "Movie Night",
+    "amount": 450.00,
+    "category": "Entertainment",
+    "date": "2025-04-03",
+    "created_at": "2024-04-01T10:00:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Petrol",
+    "amount": 1200.00,
+    "category": "Transport",
+    "date": "2025-04-04",
+    "created_at": "2024-04-01T10:00:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Coffee",
+    "amount": 250.00,
+    "category": "Food",
+    "date": "2025-04-05",
+    "created_at": "2024-04-01T10:00:00Z"
+  },
+  {
+    "id": 6,
+    "title": "Gym Membership",
+    "amount": 1800.00,
+    "category": "Health",
+    "date": "2025-04-06",
+    "created_at": "2024-04-01T10:00:00Z"
+  },
+  {
+    "id": 7,
+    "title": "Electricity Bill",
+    "amount": 2100.75,
+    "category": "Utilities",
+    "date": "2025-04-07",
+    "created_at": "2024-04-01T10:00:00Z"
+  },
+  {
+    "id": 8,
+    "title": "Books",
+    "amount": 720.00,
+    "category": "Education",
+    "date": "2025-04-08",
+    "created_at": "2024-04-01T10:00:00Z"
+  },
+  {
+    "id": 9,
+    "title": "Birthday Gift",
+    "amount": 1300.00,
+    "category": "Others",
+    "date": "2025-04-09",
+    "created_at": "2024-04-01T10:00:00Z"
+  },
+  {
+    "id": 10,
+    "title": "Snacks",
+    "amount": 160.00,
+    "category": "Food",
+    "date": "2025-04-10",
+    "created_at": "2024-04-01T10:00:00Z"
+  }
+]

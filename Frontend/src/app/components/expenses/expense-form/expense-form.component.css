@@ -1,0 +1,38 @@
+button {
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .filter-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  input, select {
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 8px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  

@@ -1,1 +1,15 @@
-<p>edit-expense works!</p>
+<div *ngIf="expenses">
+  <h2>Edit Product</h2>
+  <form (ngSubmit)="updateExpenses()">
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="expenses.title" name="title" required />
+
+    <label>Price:</label>
+    <input type="number" [(ngModel)]="expenses.amount" name="amount" required />
+    
+    <label>Category:</label>
+    <input type="text" [(ngModel)]="expenses.category" name="category" required/>
+    <button type="submit">Update</button>
+    <button routerLink="/products">Cancel</button>
+  </form>
+</div>

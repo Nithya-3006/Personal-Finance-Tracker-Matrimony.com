@@ -1,1 +1,103 @@
-<p>expenses works!</p>
+ <div class="container">
+  <h2 class="my-3">Products List</h2>
+  <div class="button-container">
+  <button mat-fab extended routerLink="/expensesform" ><mat-icon>add</mat-icon>Add Expense</button>
+</div>
+  <div class="search-field">
+    <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput type="text" id="searchInput" [(ngModel)]="searchTerm" />
+    <mat-hint>Search</mat-hint>
+    </mat-form-field>  
+    <button mat-icon-button (click)="applySearch()"><mat-icon>search</mat-icon></button>
+  </div>
+  <div class="filter-container">
+    <div class="filter-section">
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select [formControl]="category" multiple>
+        <mat-option *ngFor="let cat of allCategories" [value]="cat">
+          {{ cat }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+    <div class="filter-section">
+      <mat-form-field appearance="fill">
+      <mat-label>Min Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="amountRange.min">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+      <mat-label>Max Amount</mat-label>
+      <input matInput type="number" placeholder="Max" [(ngModel)]="amountRange.max">
+      </mat-form-field>
+    </div>
+    
+    <div class="filter-section">
+      <mat-form-field>
+        <mat-label>Select Date Range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate  placeholder="Start date" [(ngModel)]="dateRange.from">
+          <input matEndDate  placeholder="End date" [(ngModel)]="dateRange.to">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      
+    </div>
+    <div>
+    <button mat-fab extended (click)="applyAdvancedFilters()">Apply Filters</button>
+    <button mat-fab extended (click)="clearFilters()">Clear Filters</button>
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-table" matSortDisableClear>
+  
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+        <td mat-cell *matCellDef="let expense">{{ expense.title }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount</th>
+        <td mat-cell *matCellDef="let expense">${{ expense.amount }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+        <td mat-cell *matCellDef="let expense">{{ expense.category }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+        <td mat-cell *matCellDef="let expense">{{ expense.date }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let expense">
+          <button mat-icon-button [routerLink]="['/expenses', expense.id]">
+            <mat-icon>info</mat-icon>
+          </button>
+          <button mat-icon-button [routerLink]="['/edit-expenses', expense.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteExpenses(expense.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+  </div>
+  
+
+
+</div> 
+<router-outlet></router-outlet>

@@ -8,7 +8,21 @@ import { ExpensesComponent } from './components/expenses/expenses.component';
 import { EditExpenseComponent } from './components/expenses/edit-expense/edit-expense.component';
 import { ExpenseDetailsComponent } from './components/expenses/expense-details/expense-details.component';
 import { ExpenseFormComponent } from './components/expenses/expense-form/expense-form.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import{HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'; // optional, if you're using input fields in table/filter
+import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +34,22 @@ import { ExpenseFormComponent } from './components/expenses/expense-form/expense
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatSortModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

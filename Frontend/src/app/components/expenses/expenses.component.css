@@ -1,0 +1,69 @@
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+h2 {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 0.5rem;
+}
+
+.button-container button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: flex-end;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-section input[type="number"],
+.filter-section input[type="date"] {
+  padding: 0.5rem;
+  width: 150px;
+}
+
+.mat-form-field {
+  min-width: 200px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-table {
+  overflow-x: auto;
+}
+
+.actions-column {
+  display: flex;
+  gap: 0.5rem;
+}
+
