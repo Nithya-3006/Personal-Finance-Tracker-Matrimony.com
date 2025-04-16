@@ -1,4 +1,4 @@
-.expense-card{
+.expense-card {
   max-width: 500px;
   margin: 0 auto;
   padding: 24px;
@@ -16,22 +16,21 @@
   margin-top: 100px;
 }
 mat-card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  mat-card-subtitle {
-    color: #757575;
-    font-size: 1rem;
-  }
-  
-  mat-card-content {
-    font-size: 1.1rem;
-    margin-top: 10px;
-    display: block;
-  }
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 
-.buttons-field button{
-    margin-right: 30px;
+mat-card-subtitle {
+  color: #757575;
+  font-size: 1rem;
+}
 
+mat-card-content {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  display: block;
+}
+
+.buttons-field button {
+  margin-right: 30px;
 }

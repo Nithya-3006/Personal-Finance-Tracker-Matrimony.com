@@ -8,8 +8,8 @@ import { ExpensesComponent } from './components/expenses/expenses.component';
 import { EditExpenseComponent } from './components/expenses/edit-expense/edit-expense.component';
 import { ExpenseDetailsComponent } from './components/expenses/expense-details/expense-details.component';
 import { ExpenseFormComponent } from './components/expenses/expense-form/expense-form.component';
-import {MatDialogModule} from '@angular/material/dialog';
-import{HttpClientModule} from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
@@ -23,16 +23,17 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatCardModule} from '@angular/material/card'
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatCardModule } from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
     ExpensesComponent,
     EditExpenseComponent,
     ExpenseDetailsComponent,
-    ExpenseFormComponent
+    ExpenseFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,9 +56,10 @@ import {MatCardModule} from '@angular/material/card'
     MatSelectModule,
     MatCardModule,
     MatChipsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatExpansionModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

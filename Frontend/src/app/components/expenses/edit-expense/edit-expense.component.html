@@ -1,29 +1,71 @@
 <div *ngIf="expenses">
-  <h2>Edit Product</h2>
   <form (ngSubmit)="updateExpenses()" #form="ngForm">
+    <h2>Edit Product {{ expenses.id }}</h2>
     <div>
-    <mat-form-field appearance="fill">
-      <mat-label>Title</mat-label>
-      <input matInput type="text" [(ngModel)]="expenses.title" name="title" required/>
-    </mat-form-field> 
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="expenses.title"
+          name="title"
+          #title="ngModel"
+          minlength="3"
+          required
+        />
+        <mat-error *ngIf="title.errors && title.touched">
+          <span *ngIf="title.errors['required']">Title is required.</span>
+          <span *ngIf="title.errors['minlength']"
+            >Title must be at least 3 characters long.</span
+          >
+        </mat-error>
+      </mat-form-field>
     </div>
     <div>
-    <mat-form-field appearance="fill">
-      <mat-label>Amount</mat-label>
-      <input matInput type="number" [(ngModel)]="expenses.amount" name="amount" required />
-    </mat-form-field> 
+      <mat-form-field appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="expenses.amount"
+          name="amount"
+          #amount="ngModel"
+          required
+          min="1"
+        />
+        <mat-error *ngIf="amount.invalid && amount.touched">
+          <span *ngIf="amount.errors?.['required']">Amount is required.</span>
+          <span *ngIf="amount.errors?.['min']">Amount must be at least 1.</span>
+        </mat-error>
+      </mat-form-field>
     </div>
     <div>
-    <mat-form-field apperarance="fill">
-      <mat-label>Category</mat-label>
-        <mat-select [(ngModel)]="expenses.category" name="category" required>
-            <mat-option *ngFor="let category of categories" [value]="category.value">{{category.viewValue}}</mat-option>
+      <mat-form-field apperarance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select
+          [(ngModel)]="expenses.category"
+          name="category"
+          #category="ngModel"
+          required
+        >
+          <mat-option
+            *ngFor="let category of categories"
+            [value]="category.value"
+            >{{ category.viewValue }}</mat-option
+          >
         </mat-select>
-    </mat-form-field>
+        <mat-error *ngIf="category.invalid && category.touched"
+          >Category is required.</mat-error
+        >
+      </mat-form-field>
     </div>
     <div class="button-field">
-    <button mat-fab extended type="submit"><mat-icon>edit</mat-icon>Update</button>
-    <button mat-fab extended type="button" routerLink="/expenses"><mat-icon>close</mat-icon>Cancel</button>
+      <button mat-fab extended type="submit" [disabled]="form.invalid">
+        <mat-icon>edit</mat-icon>Update
+      </button>
+      <button mat-fab extended type="button" routerLink="/expenses">
+        <mat-icon>close</mat-icon>Cancel
+      </button>
     </div>
   </form>
 </div>
