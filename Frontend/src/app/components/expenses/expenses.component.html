@@ -1,53 +1,51 @@
-<div class="container py-4">
+<div class="body">
+  <div class="container py-4">
   <div class="expensePanel">
     <div
       class="d-flex justify-content-center align-items-start flex-wrap gap-3 my-4"
     >
-      <div class="total-expenses-card p-4 text-white shadow">
+      <div class="total-expenses-card shadow">
         <h5 class="total-expense">Total Expenses</h5>
         <h3 class="total-amount">
           {{ totalExpenses | currency : "INR" : "symbol" : "1.2-2" }}
         </h3>
       </div>
-      <div class="categories-box col-12 col-md-8">
-        <div
-          class="d-flex flex-wrap justify-content-around border border-danger rounded-4 p-3"
-        >
+      <div class="categories-box d-flex flex-wrap justify-content-around rounded-4 p-3 col-12 col-md-8">
           <div
             *ngFor="let category of expensesPerCategory"
-            class="category-card text-white m-2 p-3"
+            class="category-card shadow m-2 p-3"
           >
-            <div class="category-name">{{ category.category }}</div>
-            <div class="category-amount">
+            <div class="category-name" style="color: #D1E8E2; font-weight: bold;">{{ category.category }}</div>
+            <div class="category-amount" style="color: aliceblue;">
               {{ category.total | currency : "INR" : "symbol" : "1.2-2" }}
             </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
 
   <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header style="height: 80px; font-size: 20px">
-        <mat-panel-title>
+    <mat-expansion-panel style="background-color: #a4cfd0;">
+      <mat-expansion-panel-header style="height: 90px; font-size: 23px; background-color:#116466;">
+        <mat-panel-title style="color: #D1E8E2;">
           Total for {{ selectedMonth || (today | date : "MMMM") }}
           {{ selectedYear || (today | date : "yyyy") }}</mat-panel-title
         >
-        <mat-panel-description>
+        <mat-panel-description style="color:aliceblue;">
           {{ monthlyTotal | currency : "INR" : "symbol" : "1.2-2" }}
         </mat-panel-description>
       </mat-expansion-panel-header>
 
       <div
-        class="bg-light border border-danger rounded-5 d-flex p-3 shadow align-items-center"
-      >
+        class=" border rounded-5 d-flex p-3 m-3 shadow align-items-center"
+        style="background-color: aliceblue; border: 1px solid #116466;"
+        >
         <div
-          class="text-white rounded-circle text-center p-4 mx-3"
+          class="text-white rounded-circle text-center p-4 mx-5"
           style="
             min-width: 120px;
             height: 120px;
-            background-color: rgba(246, 64, 125, 0.9);
+            background-color: #116466;
             font-size: large;
           "
         >
@@ -57,8 +55,8 @@
           </div>
         </div>
         <div class="text-dark">
-          <h5>Current month expense</h5>
-          <div *ngFor="let cat of monthlyExpensesByCategory">
+          <h5 style="padding-top: 0%; font-weight: bold; font-size: medium;">Current month expense</h5>
+          <div *ngFor="let cat of monthlyExpensesByCategory" style="font-size: large;">
             {{ cat.category }}:
             {{ cat.total | currency : "INR" : "symbol" : "1.2-2" }}
           </div>
@@ -197,5 +195,6 @@
       showFirstLastButtons
     ></mat-paginator>
   </div>
+</div>
 </div>
 <router-outlet></router-outlet>

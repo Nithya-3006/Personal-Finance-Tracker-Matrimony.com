@@ -1,7 +1,16 @@
 div{
-    margin: 10px;
     padding: 20px;
+    background-color:  #D1E8E2;
+    color: #2C3531;
 }
-a{
+a[mat-fab]{
     margin-right: 15px;
+    background-color: #116466;
 }
+
+
+
+a[mat-fab]:hover {
+    background-color:  #2C3531;
+  }
+  

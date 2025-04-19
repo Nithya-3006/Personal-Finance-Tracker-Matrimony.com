@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Expenses } from '../models/Expenses';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiConfigService } from './api-config.service';
