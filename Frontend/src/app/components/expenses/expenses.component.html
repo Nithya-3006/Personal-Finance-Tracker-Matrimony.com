@@ -1,5 +1,7 @@
 <div class="body">
+  
   <div class="container py-4">
+    <h2 >Expense Manager</h2>
   <div class="expensePanel">
     <div
       class="d-flex justify-content-center align-items-start flex-wrap gap-3 my-4"
@@ -27,7 +29,7 @@
   <mat-accordion>
     <mat-expansion-panel style="background-color: #a4cfd0;">
       <mat-expansion-panel-header style="height: 90px; font-size: 23px; background-color:#116466;">
-        <mat-panel-title style="color: #D1E8E2;">
+        <mat-panel-title style="color: #D1E8E2; min-width: 300px;height: 90px;">
           Total for {{ selectedMonth || (today | date : "MMMM") }}
           {{ selectedYear || (today | date : "yyyy") }}</mat-panel-title
         >
@@ -67,13 +69,12 @@
 </div>
 
 <div class="container">
-  <h2>Products List</h2>
   <div class="button-container">
     <button mat-fab extended routerLink="/expensesform">
       <mat-icon>add</mat-icon>Add Expense
     </button>
   </div>
-  <div class="search-field">
+  <div class="search-field" style="padding-top: 5px; padding-bottom: 5px;">
     <mat-form-field appearance="fill">
       <mat-label>Search</mat-label>
       <input matInput type="text" id="searchInput" [(ngModel)]="searchTerm" />

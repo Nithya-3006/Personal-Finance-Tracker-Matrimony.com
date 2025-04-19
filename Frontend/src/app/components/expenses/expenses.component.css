@@ -1,22 +1,20 @@
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 1rem;
-}
+
 .body {
-  background-color:  #D1E8E2;
+  background-color:  #f1fefb;
   color: #2C3531;
 }
 h2 {
-  text-align: left;
-  margin-bottom: 2rem;
-  color:#2C3531
+  font-size: xx-large; 
+  font-weight: bolder; 
+  color: #116466; 
+  text-align: center;
+  height: 50px;
 }
 
 .button-container {
   display: flex;
   justify-content: left;
-  margin-bottom: 0.7rem;
+  padding-bottom: 25px;
 }
 button[mat-fab]{
   margin-right: 15px;
@@ -31,11 +29,12 @@ button[mat-fab]:hover{
   align-items: center;
   gap: 0.5rem;
 }
+
 .amount-filter {
   height: 75px;
   width: 100px;
   margin-right: 1rem;
-  background-color: #D1E8E2;
+  background-color: #f1fefb;;
   color: #2C3531;
 }
 
@@ -65,13 +64,13 @@ button[mat-fab]:hover{
   overflow-x: auto;
   background-color: #a4cfd0;
   border-radius: 12px;
+  font-size: medium;
 }
 
 .mat-table tr:hover {
-  background-color: #88abac;
+  background-color: #D1E8E2;
   color: #2C3531;
   font-weight: bold;
-  font-size: medium;
 }
 .actions-column {
   display: flex;
@@ -125,23 +124,23 @@ button[mat-fab]:hover{
   border-radius: 25px;
 }
 
-.category-card .category-name {
+.total-expenses-card:hover,.category-card:hover{
+  background-color: #2C3531;
+  color: aliceblue;
+}
+.category-name {
   font-size: x-large;
   font-weight: 550;
   margin-bottom: 70px;
   text-align: left;
 }
 
-.category-card .category-amount {
+.category-amount {
   font-size: x-large;
   text-align: right;
   margin-right: 10%;
 }
 
-mat-expansion-panel-header:hover{
-  background-color: #2C3531;
- 
-}
 
 th[mat-header-cell]{
   background-color: #116466;
@@ -150,7 +149,6 @@ th[mat-header-cell]{
 }
 
 mat-paginator{
-  border: 1px solid #116466;
-  background-color: #D1E8E2;
+  background-color: #a4cfd0;
   font-size: larger;
 }

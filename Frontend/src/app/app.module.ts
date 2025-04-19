@@ -31,6 +31,7 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
 import { BudgetFormComponent } from './components/budget/budget-form/budget-form.component';
 import { BudgetListComponent } from './components/budget/budget-list/budget-list.component';
 import { BudgetPageComponent } from './components/budget/budget-page/budget-page.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { BudgetPageComponent } from './components/budget/budget-page/budget-page
     EditExpenseComponent,
     ExpenseDetailsComponent,
     ExpenseFormComponent,
-    BudgetPageComponent   
+    BudgetPageComponent,
+    NavbarComponent   
   ],
   imports: [
     BrowserModule,
