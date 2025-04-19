@@ -3,14 +3,14 @@ import dotenv from "dotenv";
 import expensesRouter from "./routes/expensesRoutes"
 import cors from 'cors'
 import path from "path";
-import budgetRoutes from "./routes/expensesRoutes"
+import budgetRoutes from "./routes/budgetRoutes"
 dotenv.config({ path: path.resolve(__dirname, "../config/.env") });
 
 const app = express();
 app.use(express.json()); 
 app.use(cors());
 app.use("/api", expensesRouter);
-app.use('/api/budget', budgetRoutes);
+app.use("/api/budget", budgetRoutes);
 console.log(process.env.PORTNO)
 
 const PORT = process.env.PORTNO || 3000;

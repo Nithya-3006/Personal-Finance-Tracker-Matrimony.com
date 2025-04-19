@@ -28,6 +28,7 @@ export class BudgetListComponent implements OnInit {
 
   getBudgets() {
     this.budgetService.getBudgets().subscribe((response: any) => {
+      console.log("Fetching budget data");
       this.budgets = response;
     });
   }

@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { ApiConfigService } from './api-config.service';
 @Injectable({
   providedIn: 'root'
 })
 export class BudgetService {
 
-  private apiUrl = 'http://localhost:3000/api/budget';
-
-  constructor(private http: HttpClient) { }
-
+  private apiUrl = '';
+ 
+ constructor(private http: HttpClient, private apiOb: ApiConfigService) {
+     this.apiUrl = this.apiOb.getBaseUrl() + '/budget';
+     console.log('Budget API URL =', this.apiUrl);
+   }
   createBudget(budget: any) {
     return this.http.post(this.apiUrl, budget);
   }
