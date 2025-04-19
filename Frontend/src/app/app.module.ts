@@ -27,6 +27,10 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { CommonModule } from '@angular/common'; // Import CommonModule
+import { BudgetFormComponent } from './components/budget/budget-form/budget-form.component';
+import { BudgetListComponent } from './components/budget/budget-list/budget-list.component';
+import { BudgetPageComponent } from './components/budget/budget-page/budget-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,11 +38,13 @@ import {MatExpansionModule} from '@angular/material/expansion';
     EditExpenseComponent,
     ExpenseDetailsComponent,
     ExpenseFormComponent,
+    BudgetPageComponent   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    CommonModule,
     HttpClientModule,
     MatDialogModule,
     ReactiveFormsModule,
@@ -57,7 +63,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatCardModule,
     MatChipsModule,
     MatSliderModule,
-    MatExpansionModule
+    MatExpansionModule,
+    BudgetFormComponent,
+    BudgetListComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
