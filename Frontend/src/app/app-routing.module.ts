@@ -5,8 +5,9 @@ import { ExpenseDetailsComponent } from './components/expenses/expense-details/e
 import { ExpenseFormComponent } from './components/expenses/expense-form/expense-form.component';
 import { EditExpenseComponent } from './components/expenses/edit-expense/edit-expense.component';
 import { BudgetPageComponent } from './components/budget/budget-page/budget-page.component';
+import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
-  {path:'',redirectTo:'expenses',pathMatch:'full'},
+  {path:'',component:HomeComponent},
   {path: 'expenses',component: ExpensesComponent},
   {path: 'expenses/:id',component:ExpenseDetailsComponent},
   {path: 'edit-expenses/:id',component:EditExpenseComponent},

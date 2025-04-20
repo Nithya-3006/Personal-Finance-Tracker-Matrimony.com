@@ -32,6 +32,7 @@ import { BudgetFormComponent } from './components/budget/budget-form/budget-form
 import { BudgetListComponent } from './components/budget/budget-list/budget-list.component';
 import { BudgetPageComponent } from './components/budget/budget-page/budget-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ExpenseDetailsComponent,
     ExpenseFormComponent,
     BudgetPageComponent,
-    NavbarComponent   
+    NavbarComponent,
+    HomeComponent 
   ],
   imports: [
     BrowserModule,
