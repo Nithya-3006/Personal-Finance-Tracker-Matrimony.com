@@ -1,201 +1,226 @@
 <div class="body">
-  
   <div class="container py-4">
-    <h2 >Expense Manager</h2>
-  <div class="expensePanel">
-    <div
-      class="d-flex justify-content-center align-items-start flex-wrap gap-3 my-4"
-    >
-      <div class="total-expenses-card shadow">
-        <h5 class="total-expense">Total Expenses</h5>
-        <h3 class="total-amount">
-          {{ totalExpenses | currency : "INR" : "symbol" : "1.2-2" }}
-        </h3>
-      </div>
-      <div class="categories-box d-flex flex-wrap justify-content-around rounded-4 p-3 col-12 col-md-8">
+    <h2>Expense Manager</h2>
+    <div class="expensePanel">
+      <div
+        class="d-flex justify-content-center align-items-start flex-wrap gap-3 my-4"
+      >
+        <div class="total-expenses-card shadow">
+          <h5 class="total-expense">Total Expenses</h5>
+          <h3 class="total-amount">
+            {{ totalExpenses | currency : "INR" : "symbol" : "1.2-2" }}
+          </h3>
+        </div>
+        <div
+          class="categories-box d-flex flex-wrap justify-content-around rounded-4 p-3 col-12 col-md-8"
+        >
           <div
             *ngFor="let category of expensesPerCategory"
             class="category-card shadow m-2 p-3"
           >
-            <div class="category-name" style="color: #D1E8E2; font-weight: bold;">{{ category.category }}</div>
-            <div class="category-amount" style="color: aliceblue;">
+            <div
+              class="category-name"
+              style="color: #d1e8e2; font-weight: bold"
+            >
+              {{ category.category }}
+            </div>
+            <div class="category-amount" style="color: aliceblue">
               {{ category.total | currency : "INR" : "symbol" : "1.2-2" }}
             </div>
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <mat-accordion>
-    <mat-expansion-panel style="background-color: #a4cfd0;">
-      <mat-expansion-panel-header style="height: 90px; font-size: 23px; background-color:#116466;">
-        <mat-panel-title style="color: #D1E8E2; min-width: 300px;height: 90px;">
-          Total for {{ selectedMonth || (today | date : "MMMM") }}
-          {{ selectedYear || (today | date : "yyyy") }}</mat-panel-title
+    <mat-accordion>
+      <mat-expansion-panel style="background-color: #a4cfd0">
+        <mat-expansion-panel-header
+          style="height: 90px; font-size: 23px; background-color: #116466"
         >
-        <mat-panel-description style="color:aliceblue;">
-          {{ monthlyTotal | currency : "INR" : "symbol" : "1.2-2" }}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-
-      <div
-        class=" border rounded-5 d-flex p-3 m-3 shadow align-items-center"
-        style="background-color: aliceblue; border: 1px solid #116466;"
-        >
-        <div
-          class="text-white rounded-circle text-center p-4 mx-5"
-          style="
-            min-width: 120px;
-            height: 120px;
-            background-color: #116466;
-            font-size: large;
-          "
-        >
-          <div><strong style="margin-bottom: 6px">Total</strong></div>
-          <div style="margin-top: 6px">
+          <mat-panel-title
+            style="color: #d1e8e2; min-width: 300px; height: 90px"
+          >
+            Total for {{ selectedMonth || (today | date : "MMMM") }}
+            {{ selectedYear || (today | date : "yyyy") }}</mat-panel-title
+          >
+          <mat-panel-description style="color: aliceblue">
             {{ monthlyTotal | currency : "INR" : "symbol" : "1.2-2" }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div
+          class="border rounded-5 d-flex p-3 m-3 shadow align-items-center"
+          style="background-color: aliceblue; border: 1px solid #116466"
+        >
+          <div
+            class="text-white rounded-circle text-center p-4 mx-5"
+            style="
+              min-width: 120px;
+              height: 120px;
+              background-color: #116466;
+              font-size: large;
+            "
+          >
+            <div><strong style="margin-bottom: 6px">Total</strong></div>
+            <div style="margin-top: 6px">
+              {{ monthlyTotal | currency : "INR" : "symbol" : "1.2-2" }}
+            </div>
+          </div>
+          <div class="text-dark">
+            <h5 style="padding-top: 0%; font-weight: bold; font-size: medium">
+              Current month expense
+            </h5>
+            <div
+              *ngFor="let cat of monthlyExpensesByCategory"
+              style="font-size: large"
+            >
+              {{ cat.category }}:
+              {{ cat.total | currency : "INR" : "symbol" : "1.2-2" }}
+            </div>
           </div>
         </div>
-        <div class="text-dark">
-          <h5 style="padding-top: 0%; font-weight: bold; font-size: medium;">Current month expense</h5>
-          <div *ngFor="let cat of monthlyExpensesByCategory" style="font-size: large;">
-            {{ cat.category }}:
-            {{ cat.total | currency : "INR" : "symbol" : "1.2-2" }}
-          </div>
-        </div>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
-
-<div class="container">
-  <div class="button-container">
-    <button mat-fab extended routerLink="/expensesform">
-      <mat-icon>add</mat-icon>Add Expense
-    </button>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
-  <div class="search-field" style="padding-top: 5px; padding-bottom: 5px;">
-    <mat-form-field appearance="fill">
-      <mat-label>Search</mat-label>
-      <input matInput type="text" id="searchInput" [(ngModel)]="searchTerm" />
-    </mat-form-field>
-    <button mat-icon-button appearance="fill" (click)="applySearch()">
-      <mat-icon>search</mat-icon>
-    </button>
-  </div>
-  <div class="filter-container">
-    <div class="filter-section">
-      <mat-form-field>
-        <mat-label>Category</mat-label>
-        <mat-select [formControl]="category" multiple>
-          <mat-option *ngFor="let cat of allCategories" [value]="cat">
-            {{ cat }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div style="display: flex">
-      <div class="amount-filter">
-        <mat-form-field appearance="fill" class="amount-filter">
-          <mat-label>Min Amount</mat-label>
-          <input
-            matInput
-            type="number"
-            [(ngModel)]="amountRange.min"
-            [min]="0"
-          />
-        </mat-form-field>
-      </div>
-      <div class="amount-filter">
-        <mat-form-field appearance="fill" class="amount-filter">
-          <mat-label>Max Amount</mat-label>
-          <input
-            matInput
-            type="number"
-            placeholder="Max"
-            [(ngModel)]="amountRange.max"
-          />
-        </mat-form-field>
-      </div>
-    </div>
 
-    <div class="filter-section">
-      <mat-form-field>
-        <mat-label>Select Date Range</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-          <input
-            matStartDate
-            placeholder="Start date"
-            [(ngModel)]="dateRange.from"
-          />
-          <input matEndDate placeholder="End date" [(ngModel)]="dateRange.to" />
-        </mat-date-range-input>
-        <mat-datepicker-toggle
-          matIconSuffix
-          [for]="picker"
-        ></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-      </mat-form-field>
-    </div>
-    <div class="filter-apply">
-      <button mat-fab extended (click)="applyAdvancedFilters()">
-        Apply Filters
+  <div class="container">
+    <div class="button-container">
+      <button mat-fab extended routerLink="/expensesform">
+        <mat-icon>add</mat-icon>Add Expense
       </button>
-      <button mat-fab extended (click)="clearFilters()">Clear Filters</button>
+    </div>
+    <div class="search-field" style="padding-top: 5px; padding-bottom: 5px">
+      <mat-form-field appearance="fill">
+        <mat-label>Search</mat-label>
+        <input matInput type="text" id="searchInput" [(ngModel)]="searchTerm" />
+      </mat-form-field>
+      <button mat-icon-button appearance="fill" (click)="applySearch()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+    <div class="filter-container">
+      <div class="filter-section">
+        <mat-form-field>
+          <mat-label>Category</mat-label>
+          <mat-select [formControl]="category" multiple>
+            <mat-option *ngFor="let cat of allCategories" [value]="cat">
+              {{ cat }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div style="display: flex">
+        <div class="amount-filter">
+          <mat-form-field appearance="fill" class="amount-filter">
+            <mat-label>Min Amount</mat-label>
+            <input
+              matInput
+              type="number"
+              [(ngModel)]="amountRange.min"
+              [min]="0"
+            />
+          </mat-form-field>
+        </div>
+        <div class="amount-filter">
+          <mat-form-field appearance="fill" class="amount-filter">
+            <mat-label>Max Amount</mat-label>
+            <input
+              matInput
+              type="number"
+              placeholder="Max"
+              [(ngModel)]="amountRange.max"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <mat-form-field>
+          <mat-label>Select Date Range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input
+              matStartDate
+              placeholder="Start date"
+              [(ngModel)]="dateRange.from"
+            />
+            <input
+              matEndDate
+              placeholder="End date"
+              [(ngModel)]="dateRange.to"
+            />
+          </mat-date-range-input>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+      </div>
+      <div class="filter-apply">
+        <button mat-fab extended (click)="applyAdvancedFilters()">
+          Apply Filters
+        </button>
+        <button mat-fab extended (click)="clearFilters()">Clear Filters</button>
+      </div>
+    </div>
+
+    <div style="padding-bottom: 50px;">
+      <table mat-table [dataSource]="dataSource" class="mat-table">
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Title</th>
+          <td mat-cell *matCellDef="let expense">{{ expense.title }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef>Amount</th>
+          <td mat-cell *matCellDef="let expense">
+            {{ expense.amount | currency : "INR" : "symbol" : "1.2-2" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>Category</th>
+          <td mat-cell *matCellDef="let expense">{{ expense.category }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let expense">
+            {{ expense.date | date : "dd-MM-yyyy" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let expense">
+            <button mat-icon-button [routerLink]="['/expenses', expense.id]">
+              <mat-icon>info</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              [routerLink]="['/edit-expenses', expense.id]"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteExpenses(expense.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator
+        [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 25, 30]"
+        showFirstLastButtons
+      ></mat-paginator>
     </div>
   </div>
-
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" class="mat-table">
-      <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef>Title</th>
-        <td mat-cell *matCellDef="let expense">{{ expense.title }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="amount">
-        <th mat-header-cell *matHeaderCellDef>Amount</th>
-        <td mat-cell *matCellDef="let expense">
-          {{ expense.amount | currency : "INR" : "symbol" : "1.2-2" }}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="category">
-        <th mat-header-cell *matHeaderCellDef>Category</th>
-        <td mat-cell *matCellDef="let expense">{{ expense.category }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef>Date</th>
-        <td mat-cell *matCellDef="let expense">
-          {{ expense.date | date : "dd-MM-yyyy" }}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let expense">
-          <button mat-icon-button [routerLink]="['/expenses', expense.id]">
-            <mat-icon>info</mat-icon>
-          </button>
-          <button mat-icon-button [routerLink]="['/edit-expenses', expense.id]">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-icon-button (click)="deleteExpenses(expense.id)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-
-    <mat-paginator
-      [pageSize]="5"
-      [pageSizeOptions]="[5, 10, 25, 30]"
-      showFirstLastButtons
-    ></mat-paginator>
-  </div>
-</div>
 </div>
 <router-outlet></router-outlet>

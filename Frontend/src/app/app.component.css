@@ -1,13 +1,13 @@
-div{
-    background-color: #f1fefb;
-    padding-top: 75px;
-    height: 100%;
+div {
+  background-color: #f1fefb;
+  padding-top: 75px;
+  height: 100%;
 }
-a[mat-fab]{
-    margin-right: 15px;
-    background-color: #116466;
+a[mat-fab] {
+  margin-right: 15px;
+  background-color: #116466;
 }
 
 a[mat-fab]:hover {
-    background-color:  #2C3531;
-  }
+  background-color: #2c3531;
+}

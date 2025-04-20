@@ -26,7 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 import { BudgetFormComponent } from './components/budget/budget-form/budget-form.component';
 import { BudgetListComponent } from './components/budget/budget-list/budget-list.component';
@@ -42,7 +42,7 @@ import { HomeComponent } from './components/home/home.component';
     ExpenseFormComponent,
     BudgetPageComponent,
     NavbarComponent,
-    HomeComponent 
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +69,7 @@ import { HomeComponent } from './components/home/home.component';
     MatSliderModule,
     MatExpansionModule,
     BudgetFormComponent,
-    BudgetListComponent
+    BudgetListComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
