@@ -15,15 +15,13 @@ export class ExpensesService {
     console.log('Expense API URL =', this.apiUrl);
   }
   getAllExpenses(
-    sortBy: string = 'date',
-    sortOrder: string = 'DESC'
   ): Observable<any> {
     if (environment.USE_MOCK) {
       console.log('Fetching Mock data');
       return this.http.get('assets/expenses-mockup-data.json');
     } else {
       console.log('Calling getAllExpenses api from backend to get all data');
-      const url = `${this.apiUrl}?sortBy=${sortBy}&sortOrder=${sortOrder}`;
+      const url = `${this.apiUrl}`;
       return this.http.get(url);
     }
   }
