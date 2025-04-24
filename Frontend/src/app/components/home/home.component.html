@@ -59,21 +59,24 @@
   <!-- Contact Page -->
   <div class="contact-section">
     <h2 class="section-topic">Get in Touch</h2>
-    <form class="contact-form">
+    <form (ngSubmit)="onSubmit()" class="contact-form" #contactForm="ngForm">
       <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" />
+        <input type="text" id="name" name="name" [(ngModel)]="formData.name" required />
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" />
+        <input type="email" id="email" name="email" [(ngModel)]="formData.email" required />
       </div>
       <div class="form-group">
-        <label for="message">Message:</label>
-        <textarea id="message" name="message"></textarea>
+        <label for="message">Message: (optional)</label>
+        <textarea id="message" name="message" [(ngModel)]="formData.message"></textarea>
       </div>
       <button type="submit">Submit</button>
     </form>
+    <div *ngIf="submitted" style="margin:5px; color:#2C3531 ;">
+      Thankyou {{formData.name}} for connecting with us!
+    </div>
     <p class="copyright">&copy; 2025 Finance Manager. All rights reserved.</p>
   </div>
 </div>

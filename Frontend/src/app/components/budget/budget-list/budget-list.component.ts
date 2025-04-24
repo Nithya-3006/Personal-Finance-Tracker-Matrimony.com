@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 interface Budget {
   id: number;
   category: string;
-  limit: number;
+  budget_limit: number;
   created_at: string;
 }
 

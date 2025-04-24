@@ -10,7 +10,7 @@
     </select>
     <br>
     <label>Limit:</label>
-    <input type="number" [(ngModel)]="budget.limit" name="limit">
+    <input type="number" [(ngModel)]="budget.budget_limit" name="budget_limit">
     <br>
     <button mat-fab extended type="submit">Add Budget</button>
   </form>
@@ -25,7 +25,7 @@
     <tr *ngFor="let budget of budgets">
       <td>{{ budget.id }}</td>
       <td>{{ budget.category }}</td>
-      <td>{{ budget.limit }}</td>
+      <td>{{ budget.budget_limit }}</td>
       <td>{{ budget.created_at }}</td>
     </tr>
   </table>

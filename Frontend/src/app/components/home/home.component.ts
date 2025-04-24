@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   companyName='Finance Manager';
+  formData = {
+    name: '',
+    email: '',
+    message: ''
+  };
+  submitted:boolean =false;
+
+  onSubmit() {
+    this.submitted=true;
+    console.log('Form Submitted:', this.formData);
+  }
 }

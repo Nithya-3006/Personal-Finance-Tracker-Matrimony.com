@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 interface Budget {
   id: number;
   category: string;
-  limit: number;
+  budget_limit: number;
   created_at: string;
 }
 
@@ -22,7 +22,7 @@ export class BudgetFormComponent implements OnInit {
   budget: Budget = {
     id: 0,
     category: '',
-    limit: 0,
+    budget_limit: 0,
     created_at: ''
   };
 
